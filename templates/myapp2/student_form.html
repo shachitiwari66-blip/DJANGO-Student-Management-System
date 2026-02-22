@@ -1,0 +1,71 @@
+{% extends "myapp2/base_auth.html" %}
+{% block content %}
+
+<div class="form-wrapper">
+
+    <div class="form-card">
+
+        <div class="form-header">
+            <h3>Add New Student</h3>
+            <p>Enter student academic details</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Register Number</label>
+                    <input type="text" name="register_number"
+                           class="form-control reg-input"
+                           placeholder="e.g. 25122021"
+                           required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Course</label>
+                    <input type="text" name="course" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label>Batch</label>
+                    <input type="text" name="batch" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Department</label>
+                    <input type="text" name="department" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-actions mt-3">
+                <button type="submit" class="btn btn-primary px-4">
+                    Save Student
+                </button>
+
+                <a href="{% url 'student_list' %}" class="btn btn-outline-secondary px-4">
+                    Cancel
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

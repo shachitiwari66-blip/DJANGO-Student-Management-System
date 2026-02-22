@@ -1,0 +1,32 @@
+{% extends "myapp2/base_auth.html" %}
+{% block content %}
+
+<div class="card mb-4">
+    <div class="card-header bg-dark text-white">
+        <h3>{{ student.name }} ({{ student.register_number }})</h3>
+    </div>
+    <div class="card-body">
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Department:</strong> {{ student.department }}</p>
+        <p><strong>Batch:</strong> {{ student.batch }}</p>
+    </div>
+</div>
+
+<h4>Achievements</h4>
+<div class="row">
+    {% for achievement in achievements %}
+    <div class="col-md-6 mb-3">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h5 class="card-title">{{ achievement.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ achievement.date }}</h6>
+                <p class="card-text">{{ achievement.description }}</p>
+                <p>Status: <strong>{{ achievement.status }}</strong></p>
+                </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No achievements recorded for this student.</p>
+    {% endfor %}
+</div>
+{% endblock %}

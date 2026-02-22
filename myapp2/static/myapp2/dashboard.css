@@ -1,0 +1,324 @@
+/* ===============================
+   BACKGROUND SHELL
+================================ */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden; /* ✅ prevents horizontal scroll */
+  font-family: "Segoe UI", sans-serif;
+}
+
+.app-shell,
+.public-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0b3b8c 0%, #0a2f6e 60%, #0a285f 100%);
+}
+
+
+/* ===============================
+   IMPORTANT FLEX OVERFLOW FIX
+   (prevents logout/topbar items going out)
+================================ */
+.app-shell > .main-area,
+.app-shell > .flex-grow-1 {
+  min-width: 0; /* ✅ stops child content forcing overflow */
+}
+
+
+/* ===============================
+   SIDEBAR (DESKTOP)
+================================ */
+.sidebar {
+  width: 240px;
+  background: #0f172a;
+  color: #fff;
+  flex: 0 0 auto;
+}
+
+.brand-title {
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+.brand-title span {
+  color: #ef4444;
+}
+
+.side-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin: 8px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-weight: 700;
+}
+
+.side-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+
+/* ===============================
+   TOPBAR
+================================ */
+.topbar {
+  height: 64px;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-right: 18px;
+}
+
+.topbar-title {
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* ✅ keep right-side button inside */
+.topbar form,
+.topbar a,
+.topbar button {
+  white-space: nowrap;
+}
+
+
+/* ===============================
+   MAIN CONTENT CARD
+================================ */
+.content-card {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ===============================
+   PAGE TITLE
+================================ */
+.page-title {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+
+/* ===============================
+   STAT CARDS
+================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card.blue {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.stat-card.green {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.stat-card.dark {
+  background: linear-gradient(135deg, #111827, #0b1220);
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.stat-note {
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+
+/* ===============================
+   TABLE WRAPPER
+================================ */
+.table-wrap {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.table-responsive {
+  overflow-x: auto; /* ✅ safe on small screens */
+}
+
+
+/* ===============================
+   TABLE FIXED ALIGNMENT
+================================ */
+/* Header */
+.table thead th {
+  border: none !important;
+  padding: 14px 12px;
+  font-weight: 700;
+  white-space: nowrap;     /* ✅ no breaking */
+  vertical-align: middle;
+}
+
+/* Body */
+.table tbody td {
+  padding: 14px 12px;
+  vertical-align: middle;
+}
+
+/* ✅ Register Number column: consistent width */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  min-width: 140px;
+  white-space: nowrap;
+}
+
+/* ✅ Email column width */
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  min-width: 280px;
+}
+
+/* ✅ Actions column width */
+.table th:last-child,
+.table td:last-child {
+  min-width: 190px;
+  white-space: nowrap;
+}
+
+/* Zebra clean */
+.table tbody tr {
+  background: #f8fafc;
+}
+
+.table tbody tr + tr {
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* ===============================
+   BADGES
+================================ */
+.badge {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+
+/* ===============================
+   AUTH (LOGIN PAGE)
+================================ */
+.auth-wrap {
+  min-height: calc(100vh - 64px);
+}
+
+.auth-card {
+  width: 420px;
+  max-width: 92vw;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.auth-title {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.auth-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+
+/* ===============================
+   ✅ HAMBURGER + OFFCANVAS (MOBILE)
+================================ */
+.mobile-menu-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1055;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.sidebar-offcanvas {
+  background: #0f172a;
+  color: #fff;
+  width: 260px;
+}
+
+.sidebar-offcanvas .btn-close {
+  filter: invert(1);
+}
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ✅ hide desktop sidebar */
+  .sidebar {
+    display: none;
+  }
+
+  /* ✅ give topbar left space for hamburger */
+  .topbar {
+    padding-left: 64px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar-title {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .topbar .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
